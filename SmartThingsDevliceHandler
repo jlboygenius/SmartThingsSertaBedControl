@@ -1,0 +1,146 @@
+/**
+ *  Bed Control
+ * SmartThings custom Device Handler
+ *  Date: 2018-1-08
+ * Jefflester@gmail.com
+ */
+ 
+preferences {
+    section("Your Particle credentials and device Id:") {
+        input("token", "text", title: "Access Token")
+        
+    }
+}
+ 
+// for the UI
+metadata {
+	definition (name: "PhotonBedControl", author: "Jeff Lester") {
+//    	capability "Switch"
+  //      capability "Momentary"
+//        capability "Actuator"
+	command flat
+    command tvpc
+    command lounge
+    command zerog
+    command headup
+    command headdown
+    command footup
+    command footdown
+    
+	}
+    simulator {
+	}
+
+    // tile definitions
+	tiles {
+	//	standardTile("switch", "device.switch", width: 1, height: 1, canChangeIcon: true) {
+	//	state "on", label: '${name}', action: "switch.off", icon: "st.switches.switch.on", backgroundColor: "#79b821"
+//		state "off", label: '${name}', action: "switch.on", icon: "st.switches.switch.off", backgroundColor: "#ffffff"
+	//	}
+	 
+
+		standardTile("flat", "device.switch", width: 1, height: 1, canChangeIcon: true) {
+			state "on", label: 'Flat', action: "flat", icon: "st.switches.switch.on", backgroundColor: "#cc3333"
+            state "off", label: 'Flat', action: "flat", icon: "st.switches.switch.on", backgroundColor: "#cc3333", nextState: "on"
+		}
+		standardTile("lounge", "device.switch", width: 1, height: 1, canChangeIcon: true) {
+			state "on", label: 'Lounge', action: "lounge", icon: "st.switches.switch.on", backgroundColor: "#79b821"
+		}
+		standardTile("tvpc", "device.switch", width: 1, height: 1, canChangeIcon: true) {
+			state "on", label: 'TV/PC', action: "tvpc", icon: "st.switches.switch.on", backgroundColor: "#79b821"
+		}
+		standardTile("zerog", "device.switch", width: 1, height: 1, canChangeIcon: true) {
+			state "on", label: 'ZeroG', action: "zerog", icon: "st.switches.switch.on", backgroundColor: "#79b821"
+		}
+		standardTile("headup", "device.switch", width: 1, height: 1, canChangeIcon: true) {
+			state "on", label: 'Head Up', action: "headup", icon: "st.switches.switch.on", backgroundColor: "#ddb821"
+		}
+		standardTile("headdown", "device.switch", width: 1, height: 1, canChangeIcon: true) {
+			state "on", label: 'Head Down', action: "headdown", icon: "st.switches.switch.on", backgroundColor: "#ddb821"
+		}
+		standardTile("footup", "device.switch", width: 1, height: 1, canChangeIcon: true) {
+			state "on", label: 'Foot Up', action: "footup", icon: "st.switches.switch.on", backgroundColor: "#79b8bb"
+		}
+		standardTile("footdown", "device.switch", width: 1, height: 1, canChangeIcon: true) {
+			state "on", label: 'Foot Down', action: "footdown", icon: "st.switches.switch.on", backgroundColor: "#79b8bb"
+		}
+        standardTile("blank", "device.switch", width: 1, height: 1, canChangeIcon: true) {
+			state "", label: '${name}', action: "footdown", icon: "st.switches.switch.on", backgroundColor: "#eeeeee"
+		}
+
+		main "flat"
+		details ("tvpc","blank","lounge","headup","flat","footup","headdown","zerog","footdown")
+	}
+}
+
+def parse(String description) {
+	log.error "This device does not support incoming events"
+	return null
+}
+
+def flat() {
+ 	log.debug ("Sending FLAT") 
+    sendToDevice 'FLAT'
+    sendEvent(name: 'switch', value: 'FLAT')
+}
+def lounge() {
+	log.debug ("Sending lounge") 
+    sendToDevice 'LOUNGE'
+    sendEvent(name: 'switch', value: 'LOUNGE')
+}
+def tvpc() {
+	log.debug ("Sending tvpc") 	
+    sendToDevice 'TVPC'
+    sendEvent(name: 'switch', value: 'TVPC')
+}
+def headup() {
+	log.debug ("Sending headup") 	
+    sendToDevice 'HEADUP'
+    sendEvent(name: 'headup', value: 'HEADUP')
+}
+def headdown() {
+	log.debug ("Sending headdown") 	
+    sendToDevice 'HEADDOWN'
+    sendEvent(name: 'headdown', value: 'HEADDOWN')
+}
+def footup() {
+	log.debug ("Sending footup") 	
+    sendToDevice 'FOOTUP'
+    sendEvent(name: 'footup', value: 'FOOTUP')
+}
+def footdown() {
+	log.debug ("Sending footdown") 	
+    sendToDevice 'FOOTDOWN'
+    sendEvent(name: 'footdown', value: 'FOOTDOWN')
+}
+def zerog() {
+	log.debug ("Sending zerog") 	
+    sendToDevice 'ZEROG'
+    sendEvent(name: 'zerog', value: 'ZEROG')
+}
+
+def push(){
+	sendToDevice 'LOUNGE'
+    sendEvent(name: 'switch', value: 'LOUNGE')
+}
+
+def on() {
+    sendToDevice 'LOUNGE'
+    sendEvent(name: 'switch', value: 'LOUNGE')
+}
+
+def off() {
+    sendToDevice 'FLAT'
+    sendEvent(name: 'switch', value: 'FLAT')
+}
+
+private sendToDevice(cmd) {
+    // Particle API call to our photon device
+    // "deviceId" will be replaced with our actual device name
+    // FanControl is the name of our published function exposed by the device
+    // state is our input parameter: 'on' or 'off'
+	httpPost(
+		uri: "https://api.particle.io/v1/devices/50ff67065067545616160587/ExecBedCmd",
+        body: [access_token: "c38611a2d970a73ea11ebd9ec44b7f5bd808850b", command: cmd],  
+	) {response -> log.debug (response.data)}
+}
