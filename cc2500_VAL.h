@@ -1,68 +1,3 @@
-
-alexabedcontrol.ino  cc2500_REG.h cc2500_VAL.h  
-
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
 /* Sync word qualifier mode = 30/32 sync word bits detected */
 /* CRC autoflush = false */
 /* Channel spacing = 199.951172 */
@@ -95,6 +30,7 @@ alexabedcontrol.ino  cc2500_REG.h cc2500_VAL.h
  *  RF device: CC2500
  *
  ***************************************************************/
+
 #define VAL_IOCFG2           0x29
 #define VAL_IOCFG1           0x2E
 #define VAL_IOCFG0           0x06
@@ -123,4 +59,49 @@ alexabedcontrol.ino  cc2500_REG.h cc2500_VAL.h
 #define VAL_FOCCFG           0x16
 #define VAL_BSCFG            0x6C
 #define VAL_AGCCTRL2         0x03
-Ready.  FishTankController  v0.7.0 
+#define VAL_AGCCTRL1         0x40
+#define VAL_AGCCTRL0         0x91
+#define VAL_WOREVT1          0x87
+#define VAL_WOREVT0          0x6B
+#define VAL_WORCTRL          0xF8
+#define VAL_FREND1           0x56
+#define VAL_FREND0           0x10
+#define VAL_FSCAL3           0xA9
+#define VAL_FSCAL2           0x0A
+#define VAL_FSCAL1           0x00
+#define VAL_FSCAL0           0x11
+#define VAL_RCCTRL1          0x41
+#define VAL_RCCTRL0          0x00
+#define VAL_FSTEST           0x59
+#define VAL_PTEST            0x7F
+#define VAL_AGCTEST          0x3F
+#define VAL_TEST2            0x88
+#define VAL_TEST1            0x31
+#define VAL_TEST0            0x0B
+#define VAL_PARTNUM          0x80
+#define VAL_VERSION          0x03
+#define VAL_FREQEST          0x00
+#define VAL_LQI              0x00
+#define VAL_RSSI             0x00
+#define VAL_MARCSTATE        0x00
+#define VAL_WORTIME1         0x00
+#define VAL_WORTIME0         0x00
+#define VAL_PKTSTATUS        0x00
+#define VAL_VCO_VC_DAC       0x00
+#define VAL_TXBYTES          0x00
+#define VAL_RXBYTES          0x00
+#define VAL_RCCTRL1_STATUS   0x00
+#define VAL_RCCTRL0_STATUS   0x00
+
+#define	BED_HEAD	0x20
+#define	BED_TIMER	0x22
+#define	BED_FOOT	0x21
+#define	BED_TVPC	0x33
+#define	BED_WAVE	0x30
+#define	BED_LOUNGE	0x34
+#define	BED_HEADUP	0x26
+#define	BED_FLAT	0x2E
+#define	BED_FOOTUP	0x2A
+#define	BED_HEADDOWN	0x28
+#define	BED_ZEROG	0x2F
+#define	BED_FOOTDOWN	0x2C
