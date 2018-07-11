@@ -1,9 +1,13 @@
 # SmartThingsSertaBedControl
 Control Serta adjustable bed from SmartThings and Alexa
 
+I'm not 100% sure how many models of Serta Adjustible beds this is compatible with.
+I believe it should work with:
+Serta Motion Perfect 1.0 (white, rectangular remote. DIP switchs on remote and controller box for bed)
+Remote looks like this: http://www.saltlakemattress.com/resources/thSerta%20Motion%20Perfect%201.0%20Remote%20Details.jpg
+
 
 Configuration:
-
 
 Setup your Photon. Add 3 files to your Particle project Code in the code editor:
 CC2500_val.h
@@ -11,7 +15,9 @@ CC2500_REG.h
 Particle_BedControl.ino
 https://build.particle.io/build
 
-
+Configure your photon Wiring. This would also work with an arduino.
+You will need to connect a CC2500 2.4ghz transceiver. See Code for wiring Pins. Need to connect all 4 wires (MISO, MOSI, CLK, CSN).
+CC2500 modules can be found for a few dollars on ebay/aliExpress. They are very small, smaller than an arduino or Particle.
 
 This should get your device to the point where you can send it commands and manipulate the bed :)
 
