@@ -5,16 +5,21 @@ Control Serta adjustable bed from SmartThings and Alexa
 Configuration:
 
 
-Setup your Photon. Add 3 files:
+Setup your Photon. Add 3 files to your Particle project Code in the code editor:
 CC2500_val.h
 CC2500_REG.h
 Particle_BedControl.ino
+https://build.particle.io/build
+
+
 
 This should get your device to the point where you can send it commands and manipulate the bed :)
 
 
 SmartThings:
 Create a new Device Handler in the SmartThings IDE 
+https://graph.api.smartthings.com/ide/devices
+
 see sample code in PhtoBedControl_SmartThingsDeviceHandler.txt
 
 Create new Device in SmartThings that uses the new device handler.
