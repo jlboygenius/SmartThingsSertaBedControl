@@ -37,7 +37,11 @@ see sample code in PhtoBedControl_SmartThingsDeviceHandler.txt
 Create new Device in SmartThings that uses the new device handler.
 
 Assuming you've gotten your smartThings setup with Alexa, you can now add this new device to alexa.
-The smartThings device handler is defined as a switch. Alexa will allow you to use "ON" and "OFF" commands. 
+The smartThings device handler is defined as a switch. Alexa will allow you to use "ON" and "OFF" commands.   
+
+Google Home will probably work too, but I have not tried it.
+
+SmartThings does not expose a lot of commands to alexa,  only basic switch (on/Off), #'s, and colors. You could set each bed command to a color, and then setup routines in Alexa to call that color. This would allow you to say "Alexa, Turn on Massage", which would trigger "blue", which you have setup to trigger the Massage button. The code provided does not support this. Maybe a future update.
 
 The configuration for on and off, the switch states that alexa understands are defined as:
 def on: Lounge
