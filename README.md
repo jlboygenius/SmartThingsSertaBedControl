@@ -41,7 +41,6 @@ The smartThings device handler is defined as a switch. Alexa will allow you to u
 
 Google Home will probably work too, but I have not tried it.
 
-SmartThings does not expose a lot of commands to alexa,  only basic switch (on/Off), #'s, and colors. You could set each bed command to a color, and then setup routines in Alexa to call that color. This would allow you to say "Alexa, Turn on Massage", which would trigger "blue", which you have setup to trigger the Massage button. The code provided does not support this. Maybe a future update.
 
 The configuration for on and off, the switch states that alexa understands are defined as:
 def on: Lounge
@@ -52,11 +51,15 @@ You'll need to setup your particle devices ID and your access key. These could p
 
 Once setup in Smart Things, you'll see your device and all of the bed remote control buttons. In this example, The 'vibration' option buttons were not used. The CC2500_val.h file has the button codes defined, but are not configured in the particle ExecBedCmd function.
 
-Once connected to Alexa/Amazon Echo, the following commands (and probably some variation of) are available:
+![SmartThings device buttons](SmartThingsDevice.jpg)
+
+To setup Alexa, you'll need to have SmartThings connected to Alexa. Ask Alexa to rescan for devices (or rescan using the app). Alexa should find your new SmartThings device.
+The following commands (and probably some variation of) are available:
 "Alexa, turn on the bed"
 "Alexa, turn off the bed"
 
 Amazon Alexa sees this device as a normal switch. Any switch commands should work.
+SmartThings does not expose a lot of commands to alexa,  only basic switch (on/Off), #'s, and colors. You could set each bed command to a color, and then setup routines in Alexa to call that color. This would allow you to say "Alexa, Turn on Massage", which would trigger "blue", which you have setup to trigger the Massage button. The code provided does not support this. Maybe a future update.
 
 
 I believe there are ways to expand this device so that alexa can support any code word for the particle device. If you find this code useful and add those features (or other features) please let me know.
