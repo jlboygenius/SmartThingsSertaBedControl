@@ -11,7 +11,7 @@ The easy way to check if you have the same device is to open up the remote. Take
 Pictures:
 ![Remote](Remote_Front.jpg)
 ![Remote Control Board](Remote_Board.jpg)
-
+See the little board that is soldered on the bigger board? FCC tells me that's a CC2500.
 
 Configuration:
 
@@ -23,7 +23,7 @@ https://build.particle.io/build
 
 Configure your photon Wiring. This would also work with an arduino.
 You will need to connect a CC2500 2.4ghz transceiver. See Code for wiring Pins. Need to connect all 4 wires (MISO, MOSI, CLK, CSN).
-CC2500 modules can be found for a few dollars on ebay/aliExpress. They are very small, smaller than an arduino or Particle.
+CC2500 modules can be found for a few dollars on ebay/aliExpress. They are very small, smaller than an arduino or Particle. I recommend getting one that has a built in antenna. It will have a squigly trace on the board.
 
 This should get your device to the point where you can send it commands and manipulate the bed :)
 
