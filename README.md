@@ -6,6 +6,11 @@ I believe it should work with:
 Serta Motion Perfect 1.0 (white, rectangular remote. DIP switchs on remote and controller box for bed)
 Remote looks like this: http://www.saltlakemattress.com/resources/thSerta%20Motion%20Perfect%201.0%20Remote%20Details.jpg
 
+The easy way to check if you have the same device is to open up the remote. Take off the battery cover. This project uses a remote that has 6 DIP switches, with the FCC ID: WKZSFDY0502
+
+Pictures:
+
+
 
 Configuration:
 
