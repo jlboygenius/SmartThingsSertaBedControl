@@ -9,7 +9,8 @@ Remote looks like this: http://www.saltlakemattress.com/resources/thSerta%20Moti
 The easy way to check if you have the same device is to open up the remote. Take off the battery cover. This project uses a remote that has 6 DIP switches, with the FCC ID: WKZSFDY0502
 
 Pictures:
-
+![Remote](Remote_Front.jpg)
+![Remote Control Board](Remote_Board.jpg)
 
 
 Configuration:
