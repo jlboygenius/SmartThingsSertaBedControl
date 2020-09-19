@@ -1,6 +1,11 @@
 # SmartThingsSertaBedControl
 Control Serta adjustable bed from SmartThings and Alexa
 
+
+NOTE: SmartThings has ended support for custom Device Type Handlers.  This project now only works for on/off tasks.
+CC2500 commands still work fine, but will need to be integrated into another system. 
+
+
 I'm not 100% sure how many models of Serta Adjustible beds this is compatible with.
 I believe it should work with:
 Serta Motion Perfect 1.0 (white, rectangular remote. DIP switchs on remote and controller box for bed)
